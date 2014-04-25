@@ -1,10 +1,10 @@
 Stripe.setPublishableKey(stripe_vars.publishable_key);
 function stripeResponseHandler(status, response) {
     if (response.error) {
-		// show errors returned by Stripe
+        // show errors returned by Stripe
         jQuery(".payment-errors").html(response.error.message);
-		// re-enable the submit button
-		jQuery('#stripe-submit').attr("disabled", false);
+        // re-enable the submit button
+        jQuery('#stripe-submit').attr("disabled", false);
     } else {
         var form$ = jQuery("#stripe-payment-form");
         // token contains id, last4, and card type
@@ -16,19 +16,19 @@ function stripeResponseHandler(status, response) {
     }
 }
 jQuery(document).ready(function($) {
-	$("#stripe-payment-form").submit(function(event) {
-		// disable the submit button to prevent repeated clicks
-		$('#stripe-submit').attr("disabled", "disabled");
-		
-		// send the card details to Stripe
-		Stripe.createToken({
-			number: $('.card-number').val(),
-			cvc: $('.card-cvc').val(),
-			exp_month: $('.card-expiry-month').val(),
-			exp_year: $('.card-expiry-year').val()
-		}, stripeResponseHandler);
+    $("#stripe-payment-form").submit(function(event) {
+        // disable the submit button to prevent repeated clicks
+        $('#stripe-submit').attr("disabled", "disabled");
 
-		// prevent the form from submitting with the default action
-		return false;
-	});
+        // send the card details to Stripe
+        Stripe.createToken({
+            number: $('.card-number').val(),
+            cvc: $('.card-cvc').val(),
+            exp_month: $('.card-expiry-month').val(),
+            exp_year: $('.card-expiry-year').val()
+        }, stripeResponseHandler);
+
+        // prevent the form from submitting with the default action
+        return false;
+    });
 });

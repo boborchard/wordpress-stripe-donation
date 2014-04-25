@@ -1,11 +1,11 @@
 <?php
 /*
-Plugin Name: WordPress Stripe Integration
-Plugin URI: http://pippinsplugins.com/
-Description: A plugin to illustrate how to integrate Stripe and WordPress
-Author: Pippin Williamson
-Author URI: http://pippinsplugins.com
-COntributors: mordauk
+Plugin Name: WordPress Donation Plugin
+Plugin URI: http://boborchard.com/
+Description: A plugin to integrate simple donations via Stripe for non-profits
+Author: Bob orchard
+Author URI: http://boborchard.com
+Contributors: boborchard, ross-hunter
 Version: 1.0
 */
 
@@ -14,10 +14,10 @@ Version: 1.0
 **********************************/
 
 if(!defined('STRIPE_BASE_URL')) {
-  define('STRIPE_BASE_URL', plugin_dir_url(__FILE__));
+    define('STRIPE_BASE_URL', plugin_dir_url(__FILE__));
 }
 if(!defined('STRIPE_BASE_DIR')) {
-  define('STRIPE_BASE_DIR', dirname(__FILE__));
+    define('STRIPE_BASE_DIR', dirname(__FILE__));
 }
 
 $stripe_options = get_option('stripe_settings');
@@ -26,20 +26,18 @@ $stripe_options = get_option('stripe_settings');
 * plugin text domain for translations
 *******************************************/
 
-load_plugin_textdomain( 'stripe_donate', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+load_plugin_textdomain( 'givesoft_stripe_donations', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 
 /**********************************
 * includes
 **********************************/
 
 if(is_admin()) {
-  // load admin includes
-  include(STRIPE_BASE_DIR . '/includes/settings.php');
+    // load admin includes
+    include(STRIPE_BASE_DIR . '/includes/settings.php');
 } else {
-  // load front-end includes
-  include(STRIPE_BASE_DIR . '/includes/scripts.php');
-  include(STRIPE_BASE_DIR . '/includes/shortcodes.php');
-  include(STRIPE_BASE_DIR . '/includes/process-payment.php');
+    // load front-end includes
+    include(STRIPE_BASE_DIR . '/includes/scripts.php');
+    include(STRIPE_BASE_DIR . '/includes/shortcodes.php');
+    include(STRIPE_BASE_DIR . '/includes/process-payment.php');
 }
-
-
