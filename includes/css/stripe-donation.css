@@ -1,0 +1,40 @@
+* {
+  box-sizing: border-box;
+}
+
+.panel.donate {
+  width: 540px;
+  margin: 0 auto;
+  background: #eee;
+}
+
+.content-piece {
+  display: none;
+}
+
+.selections {
+  padding-top: 1px;
+  width: 107px;
+  float :left;
+  border-bottom: 1px solid #e3e3e3;
+}
+
+.selections li {
+  padding: 5px 0 5px 5px;
+  background: white;
+}
+
+.selections li.active {
+  color: red;
+  font-weight: bold;
+  background: #f5f5f5;
+  margin-right: -5px;
+}
+
+.content-area {
+  width: 400px;
+  float: right;
+  background: #ddd;
+  padding: 20px;
+}
+
