@@ -5,7 +5,6 @@
 .panel.donate {
   width: 540px;
   margin: 0 auto;
-  background: #eee;
 }
 
 .content-piece {
@@ -13,28 +12,38 @@
 }
 
 .selections {
-  padding-top: 1px;
   width: 107px;
   float :left;
-  border-bottom: 1px solid #e3e3e3;
 }
 
 .selections li {
   padding: 5px 0 5px 5px;
   background: white;
+  border-bottom: 1px solid #e3e3e3;
+}
+
+.selections .nav-stacked>li+li {
+  margin-top: 0;
 }
 
 .selections li.active {
   color: red;
   font-weight: bold;
+  margin-right: -3px;
   background: #f5f5f5;
-  margin-right: -5px;
+  border-bottom: 1px solid #e3e3e3;
+  border-left: 1px solid #e3e3e3;
+}
+
+.selections li:first-child.active {
+  border-top: 1px solid #e3e3e3;
 }
 
 .content-area {
+  border: 1px solid #e3e3e3;
+  background: #f5f5f5;
   width: 400px;
   float: right;
-  background: #ddd;
   padding: 20px;
 }
 
