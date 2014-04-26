@@ -4,9 +4,9 @@ function stripeResponseHandler(status, response) {
         // show errors returned by Stripe
         jQuery(".payment-errors").html(response.error.message);
         // re-enable the submit button
-        jQuery('#stripe-submit').attr("disabled", false);
+        jQuery('#givesoft-submit').attr("disabled", false);
     } else {
-        var form$ = jQuery("#stripe-payment-form");
+        var form$ = jQuery("#givesoft-donation-form");
         // token contains id, last4, and card type
         var token = response['id'];
         // insert the token into the form so it gets submitted to the server
@@ -16,9 +16,9 @@ function stripeResponseHandler(status, response) {
     }
 }
 jQuery(document).ready(function($) {
-    $("#stripe-payment-form").submit(function(event) {
+    $("#givesoft-donation-form").submit(function(event) {
         // disable the submit button to prevent repeated clicks
-        $('#stripe-submit').attr("disabled", "disabled");
+        $('#givesoft-submit').attr("disabled", "disabled");
 
         // send the card details to Stripe
         Stripe.createToken({
