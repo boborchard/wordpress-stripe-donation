@@ -4,7 +4,7 @@ $('.selections li').on('click', function () {
   var $item = $(selector);
   clear_selection();
   $item.show();
-  update_form_selection(selection);
+  update_form_amount(this);
 });
 
 var set_active = function (el) {
@@ -21,10 +21,9 @@ var clear_selection = function () {
   $('.content-piece').hide();
 };
 
-var update_form_selection = function (value) {
-  // I'm not sure how the form data for amount is
-  // actually sent to stripe
-  $('#donation_selection').val(value);
+var update_form_amount = function (selection) {
+  var value = $(selection).data('amount');
+  $('#donation_amount').val(value);
 };
 
 $(document).ready(function () {

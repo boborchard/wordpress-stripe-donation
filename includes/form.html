@@ -28,9 +28,10 @@
 
               <div class="selections">
                 <ul class="nav nav-pills nav-stacked">
-                  <li data-selection='1'>10$</li>
-                  <li data-selection='2'>20$</li>
-                  <li data-selection='3'>30$</li>
+                  <!-- for each selection type -->
+                  <li data-selection='1' data-amount='1000'>10$</li>
+                  <li data-selection='2' data-amount='2000'>20$</li>
+                  <li data-selection='3' data-amount='3000'>30$</li>
                 </ul>
               </div>
 
@@ -70,7 +71,7 @@
                   <input type="text" size="2" data-stripe="exp-year"/>
                 </div>
 
-                <input type="hidden" id="donation_selection"></input>
+                <input id="donation_amount" type="hidden" name="amount"/>
 
                 <button type="submit" id="givesoft-submit">Submit Payment</button>
               </div>
